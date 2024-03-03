@@ -1,7 +1,0 @@
-Declarativo 
-- Escreve o que quebra
-- Vá fazer um bolo
-
-Imperativo 
-- Descreve como deve ser feito
-- Vá seguir essa receita de bolo

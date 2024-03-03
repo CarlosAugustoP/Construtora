@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PostHeader from './PostHeader';
-import styles from './Post.scss';
 import {Container, Subtitle, Rate} from './styles'
 export default function Post(props){
     return (

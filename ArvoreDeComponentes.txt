@@ -1,4 +1,0 @@
-                            APP
-                    Header         Post
-                                        PostBody
-                                                Button
