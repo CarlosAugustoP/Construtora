@@ -13,6 +13,20 @@ const Title = styled.h1`
     color: white;
 `;
 
+//creating a new component that will receive the src, alt and children props to improve modularization
+const ContactInfo = ({ src, alt, children }) => (
+    <span
+      style={{
+        display: 'flex',
+        gap: '5px',
+        alignItems: 'center'
+      }}
+    >
+      <ContactLogo src={src} alt={alt} style={{ marginLeft: '20px' }} />
+      {children}
+    </span>
+  );
+
 export default function Header(props){
     const {onToggleTheme} = useContext(ThemeContext);
     return (
@@ -37,33 +51,15 @@ export default function Header(props){
                         </Content>
                     </Container>
                     <SubNav>
-                            <span
-                                style = {{
-                                    marginLeft: '20px',
-                                    display: 'flex',
-                                    gap: '5px',
-                                    alignItems: 'center'
-                                }}>
-                                <ContactLogo src={Phone} alt="Telefone de contato"/>
-                                +5581992036473
-                            </span>
-                            <span
-                                style = {{
-                                    display: 'flex',
-                                    gap: '5px',
-                                    alignItems: 'center'
-                                }}>
-                                <ContactLogo src={Email} alt="Email de contato"/>
-                                contato@peixotoevasconcelos.com</span>
-                            <span
-                            style = {{
-                                display: 'flex',
-                                gap: '5px',
-                                alignItems: 'center'
-                            }}>
-                                <ContactLogo src={Instagram} alt="Instagram de contato"/>
-                                @peixotoevasconcelos
-                            </span>
+                    <ContactInfo src={Phone} alt="Telefone de contato">
+                            +5581992036473
+                        </ContactInfo>
+                        <ContactInfo src={Email} alt="Email de contato">
+                            contato@peixotoevasconcelos.com
+                        </ContactInfo>
+                        <ContactInfo src={Instagram} alt="Instagram de contato">
+                            @peixotoevasconcelos
+                        </ContactInfo>
                     </SubNav>
                 </nav>
             </header>
