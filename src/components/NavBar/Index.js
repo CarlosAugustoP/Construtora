@@ -23,7 +23,9 @@ export default function Header(props){
                     position: 'fixed',
                     width: '100%',
                 }}>
-                    <Container>
+                    <Container style = {{
+                        justifyContent: 'space-between'
+                        }}>
                         <MainLogo src = {Logo} alt = "Logo Peixoto e Vasconcelos"></MainLogo>
                         <Content>
                             <span>Catálogo</span>

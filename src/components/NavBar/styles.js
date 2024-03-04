@@ -5,11 +5,11 @@ export const Container = styled.div`
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 55%;
     background-color: black;
 `;
 
 export const Content = styled(Container)`
+    margin-right: 40px;
     font-weight: 200;
     font-style: normal;
     gap:45px;
