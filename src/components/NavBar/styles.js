@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 
-export const Container = styled.nav`
+export const Container = styled.div`
     height: 75px;
     align-items: center;
     display: flex;

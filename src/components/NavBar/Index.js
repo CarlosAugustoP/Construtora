@@ -17,47 +17,53 @@ export default function Header(props){
     const {onToggleTheme} = useContext(ThemeContext);
     return (
         <div>
-        <header>
-            <Container>
-                <MainLogo src = {Logo} alt = "Logo Peixoto e Vasconcelos"></MainLogo>
-                <Content>
-                    <span>Catálogo</span>
-                    <span>Contato</span>
-                    <span>Financiamento</span>
-                    <span>Quem somos?</span>
-                </Content>
-            </Container>
-            <SubNav>
-                    <span
-                        style = {{
-                            marginLeft: '20px',
-                            display: 'flex',
-                            gap: '5px',
-                            alignItems: 'center'
-                        }}>
-                        <ContactLogo src={Phone} alt="Telefone de contato"/>
-                        +5581992036473
-                    </span>
-                    <span
-                        style = {{
-                            display: 'flex',
-                            gap: '5px',
-                            alignItems: 'center'
-                        }}>
-                        <ContactLogo src={Email} alt="Email de contato"/>
-                        contato@peixotoevasconcelos.com</span>
-                    <span
-                    style = {{
-                        display: 'flex',
-                        gap: '5px',
-                        alignItems: 'center'
-                    }}>
-                        <ContactLogo src={Instagram} alt="Instagram de contato"/>
-                        @peixotoevasconcelos
-                    </span>
-            </SubNav>
+            <header>
+                <nav
+                style = {{
+                    position: 'fixed',
+                    width: '100%',
+                }}>
+                    <Container>
+                        <MainLogo src = {Logo} alt = "Logo Peixoto e Vasconcelos"></MainLogo>
+                        <Content>
+                            <span>Catálogo</span>
+                            <span>Contato</span>
+                            <span>Financiamento</span>
+                            <span>Quem somos?</span>
+                        </Content>
+                    </Container>
+                    <SubNav>
+                            <span
+                                style = {{
+                                    marginLeft: '20px',
+                                    display: 'flex',
+                                    gap: '5px',
+                                    alignItems: 'center'
+                                }}>
+                                <ContactLogo src={Phone} alt="Telefone de contato"/>
+                                +5581992036473
+                            </span>
+                            <span
+                                style = {{
+                                    display: 'flex',
+                                    gap: '5px',
+                                    alignItems: 'center'
+                                }}>
+                                <ContactLogo src={Email} alt="Email de contato"/>
+                                contato@peixotoevasconcelos.com</span>
+                            <span
+                            style = {{
+                                display: 'flex',
+                                gap: '5px',
+                                alignItems: 'center'
+                            }}>
+                                <ContactLogo src={Instagram} alt="Instagram de contato"/>
+                                @peixotoevasconcelos
+                            </span>
+                    </SubNav>
+                </nav>
+            </header>
             {props.children}
-        </header> 
         </div>
     );
 }
