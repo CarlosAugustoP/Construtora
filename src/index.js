@@ -10,7 +10,7 @@ import App from './components/App';
 ReactDOM.render(
     <>
     <GlobalStyle />
-    <App />,
+    <App />
     </>,
     
     document.getElementById('root')

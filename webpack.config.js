@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
-    mode: 'development', // Set the mode option to 'development'
+    mode: 'development',
     entry: path.resolve(__dirname, 'src', 'index.js'),
     output: {
         path: path.resolve(__dirname, 'lib'),
@@ -34,7 +35,23 @@ module.exports = {
                     'sass-loader',
                 ],
             },
-        ]
+            {
+                test: /\.svg$/,
+                use: ['svg-url-loader'],
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/', // Adjust the output path as needed
+                        },
+                    },
+                ],
+            },
+        ],
     },
     devServer: {
         port: 3000,
