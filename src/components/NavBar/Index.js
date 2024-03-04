@@ -22,6 +22,8 @@ export default function Header(props){
                 style = {{
                     position: 'fixed',
                     width: '100%',
+                    top: 0,
+                    left: 0,   
                 }}>
                     <Container style = {{
                         justifyContent: 'space-between'
