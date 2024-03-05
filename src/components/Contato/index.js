@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
 import {ThemeContext} from '../../Context/ThemeContext';
-import { Container, FormContainer } from './styles'; 
+import { Container, FormContainer, Title } from './styles'; 
 
 export default function Contato(props){
   const {onToggleTheme} = useContext(ThemeContext);
   return (
     <Container>
-      <div>Contato</div>
+      <Title>Contato</Title>
       <FormContainer>
         <form>
           <label for="nome">Nome:</label>
