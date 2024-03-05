@@ -4,19 +4,20 @@ import { Content } from '../NavBar/styles';
 export const Title = styled.div`
   display  : flex;
   align-items: flex-start;
+  font-size: 20px;
 `
-
 export const Container = styled.div`
   background-color: #575757;
   width: 100%;
-  height: 200px;
+  height: 225px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const FormContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr ;
   align-items: center;
