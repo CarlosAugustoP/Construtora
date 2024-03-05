@@ -2,6 +2,7 @@ import React, {useState, createContext} from 'react';
 import { ThemeProvider } from '../../Context/ThemeContext';
 import {Title} from './styles';
 import Header from '../NavBar';
+import Contato from '../Contato';
 function App(){
    
     // const [posts, setPosts] = useState([
@@ -38,13 +39,8 @@ In in tempus justo, sit amet rutrum odio. Curabitur velit mauris, maximus ut orn
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas sem augue, pretium nec maximus ut, mollis eget justo. Nam ut diam eget orci finibus auctor in ut tortor. Aenean odio nisi, varius vitae ligula nec, ultrices iaculis mi. Etiam malesuada tellus orci, eu maximus augue dignissim ut. Integer ornare magna urna, vitae tincidunt leo ullamcorper non. Duis pellentesque magna eget accumsan suscipit.
 
-Donec a libero nec felis porta vulputate. Aliquam erat volutpat. Aenean tempor urna eget cursus cursus. Sed maximus quam sit amet lectus dictum egestas. Pellentesque faucibus sed mauris ac condimentum. Donec sodales vel orci ac congue. Morbi eget enim vitae libero efficitur cursus. Nullam et libero at diam auctor laoreet id ut lectus. Aenean semper magna sed molestie scelerisque. Phasellus eu egestas libero. Vivamus vulputate velit non laoreet venenatis. Maecenas posuere lorem sit amet leo tristique posuere et non mi. Nulla ac enim venenatis, fermentum lacus eu, eleifend nisi. Donec sed ligula vitae odio ultrices viverra. Nam pellentesque id felis eget sodales.
-
-Ut egestas risus et nisl vestibulum, non mattis turpis dignissim. Vivamus blandit mi orci, vitae sagittis mauris molestie ut. Morbi ac tortor non lorem faucibus volutpat. Fusce tristique facilisis quam, vitae aliquam arcu aliquet ac. Pellentesque rutrum scelerisque convallis. Curabitur ac elit vitae mauris ultrices commodo. Sed convallis aliquet malesuada. Morbi vulputate elit non sem placerat porttitor. Fusce vulputate ex eu justo varius, nec feugiat turpis venenatis. Etiam tincidunt ipsum in elit tristique tempor. Ut eleifend, enim quis maximus commodo, purus mauris volutpat metus, gravida placerat lorem ante a ipsum.
-
-Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor, odio vitae accumsan ornare, lorem diam ornare ligula, sed hendrerit tortor sem quis tellus. Vivamus ornare libero nisl, eget cursus nisl vulputate sit amet. Nulla sagittis accumsan risus. Duis volutpat odio sed quam pretium pellentesque. Vestibulum fermentum arcu a tristique feugiat. Nullam volutpat nibh ac sapien pellentesque dapibus. Ut ac condimentum urna. Donec ut finibus metus. Phasellus fermentum, lectus ac vulputate fermentum, arcu diam pulvinar nisl, at hendrerit metus lorem sit amet elit. Ut tellus turpis, pretium eget varius vitae, dictum elementum sem. Nam leo nunc, accumsan sit amet gravida vitae, tincidunt ac odio. Praesent quis gravida risus, vel imperdiet est. Cras accumsan diam sed dolor faucibus facilisis.
-
-Suspendisse orci ligula</p>
+Donec a libero nec felis porta vulputate. </p>
+          <Contato/>
         </ThemeProvider>    
     );
 }
