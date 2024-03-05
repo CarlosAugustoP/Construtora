@@ -18,6 +18,18 @@ export const Container = styled.div`
 export const FormContainer = styled.div`
   margin-top: 30px;
   display: grid;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr 1fr ;
+  align-items: center;
+  justify-items: end;
+  gap:30px;
 `;
 
+export const InputField = styled.input`
+  width: 100%;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  background-color: #f0f0f0;
+`;
