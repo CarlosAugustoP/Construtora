@@ -18,6 +18,12 @@ export const Container = styled.div`
 `;
 
 export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const InputContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr ;
   align-items: center;
