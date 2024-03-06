@@ -1,35 +1,31 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import {ThemeContext} from '../../Context/ThemeContext';
-import { Container, FormContainer, Title, InputField } from './styles'; 
+import { ThemeContext } from '../../Context/ThemeContext';
+import { Container, FormContainer, Title, InputField, Button } from './styles';
 
-export default function Contato(props){
-  const {onToggleTheme} = useContext(ThemeContext);
+export default function Contato() {
+  const inputFields = [
+    { label: 'Nome:', type: 'text', id: 'nome', name: 'nome', required: true },
+    { label: 'Email:', type: 'email', id: 'email', name: 'email', required: true },
+    { label: 'Telefone:', type: 'tel', id: 'telefone', name: 'telefone', required: true },
+    { label: 'Mensagem:', type: 'text', id: 'mensagem', name: 'mensagem', required: true },
+  ];
+
   return (
-       
     <Container>
-      <Title>Contato</Title>
-      <form>
+      <Title>Fale Conosco!</Title>
       <FormContainer>
-          <div style={{ display: 'flex' , flexDirection: 'column', fontSize: '15px'}}>
-            <label for="nome">Nome:</label>
-            <InputField type="text" id="nome" name="nome" required></InputField>
+        {inputFields.map(({ label, type, id, name, required }) => (
+          <div key={id} style={{ display: 'flex', flexDirection: 'column', fontSize: '15px' }}>
+            <label htmlFor={id}>{label}</label>
+            <InputField type={type} id={id} name={name} required={required}></InputField>
           </div>
-          <div style={{ display: 'flex' ,flexDirection: 'column', fontSize: '15px'}}>
-            <label for="email">Email:</label>
-            <InputField type="email" id="email" name="email" required></InputField>
-          </div>
-          <div style={{ display: 'flex' ,flexDirection: 'column', fontSize: '15px'}}>
-            <label for="telefone">Telefone:</label>
-            <InputField type="tel" id="telefone" name="telefone" required></InputField>
-          </div>
-          <div style={{ display: 'flex' ,flexDirection: 'column',fontSize: '15px'}}>
-            <label for="mensagem">Mensagem:</label>
-            <InputField type="text" id="mensagem" name="mensagem" required></InputField>
-          </div>     
+        ))}
       </FormContainer>
-      <button style={{ marginTop: '10px'}} type="submit" value="Enviar">Enviar</button>
-      </form>
+
+      <Button type="submit" value="Enviar">
+        Enviar
+      </Button>
     </Container>
-  )
-};
+  );
+}
