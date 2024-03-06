@@ -1,24 +1,34 @@
 import styled, {css} from 'styled-components';
+import TestImageHouse from '../../../public/img/TestImageHouse.png';
 
 export const Container = styled.div`
     height: 400px;
     width:70%;
     display:flex;
-    gap:80px;
+    
     align-items: center;
-`;
-
-export const ImageContainer = styled.div`
-    height: 100%;
-    width: 50%;
-    background-color: black;
 `;
 
 export const PostDescription = styled.div`
     height: 100%;
     width: 50%;
-    background-color: black;
+    padding-left: 80px;
+    
 `;
+
+export const ImageContainer = styled(PostDescription)`    
+    img {
+        background-color: #fff;
+        color: #575757;
+        width: 85%;
+        height: 100%;
+        object-fit: cover;
+        border: 5px solid #FFF;
+        box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+`;
+
+
 
 export const PostGrid = styled.div`
     display: grid;
@@ -33,6 +43,12 @@ export const PostGrid = styled.div`
 export const PostContainer = styled(ImageContainer)`
     width: 100%;
     height: 100%;
-
-
-`; 
+    padding: 0;
+    img {
+        background-color: #fff;
+        color: #575757;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`;

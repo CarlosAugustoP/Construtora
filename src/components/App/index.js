@@ -20,6 +20,13 @@ function App(){
 
     return (
         <ThemeProvider>
+            {/* SEBOSEIRA IMENSA. DEPOIS VAMOS MUDAR ISSO. */}
+            <div style = {{
+                height: '130px',
+
+            }}>
+                
+            </div>
             <Header>
             </Header>
             {/*

@@ -7,6 +7,7 @@ export const Title = styled.h1`
 
 `
 export const Container = styled.div`
+  margin-top: 50px;
   background-color: #575757;
   width: 100%;
   height: 350px;
