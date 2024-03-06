@@ -33,16 +33,19 @@ export default function Header(props){
         <div>
             <header>
                 <nav
-                style = {{
-                    position: 'fixed',
-                    width: '100%',
-                    top: 0,
-                    left: 0,   
-                }}>
-                    <Container style = {{
-                        justifyContent: 'space-between'
-                        }}>
-                        <MainLogo src = {Logo} alt = "Logo Peixoto e Vasconcelos"></MainLogo>
+                    style={{
+                        position: 'fixed',
+                        width: '100%',
+                        top: 0,
+                        left: 0,
+                    }}
+                >
+                    <Container
+                        style={{
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <MainLogo src={Logo} alt="Logo Peixoto e Vasconcelos"></MainLogo>
                         <Content>
                             <span>Catálogo</span>
                             <span>Contato</span>
@@ -51,15 +54,30 @@ export default function Header(props){
                         </Content>
                     </Container>
                     <SubNav>
-                    <ContactInfo src={Phone} alt="Telefone de contato">
-                            +5581992036473
-                        </ContactInfo>
+                        <a style = {{textDecoration: 'none',
+                                    color: 'black'
+                        }}
+                        href="https://www.google.com">
+                            <ContactInfo src={Phone} alt="Telefone de contato">
+                                +5581992036473
+                            </ContactInfo>
+                        </a>
+                        <a style = {{textDecoration: 'none',
+                                    color: 'black'
+                        }}
+                        href="https://www.google.com">
                         <ContactInfo src={Email} alt="Email de contato">
                             contato@peixotoevasconcelos.com
                         </ContactInfo>
+                        </a>
+                        <a style = {{textDecoration: 'none',
+                                    color: 'black'
+                        }}
+                        href="https://www.google.com">
                         <ContactInfo src={Instagram} alt="Instagram de contato">
                             @peixotoevasconcelos
                         </ContactInfo>
+                        </a>
                     </SubNav>
                 </nav>
             </header>
