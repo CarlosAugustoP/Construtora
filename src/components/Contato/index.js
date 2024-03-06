@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../Context/ThemeContext';
 import { Container, FormContainer, InputContainer, Title, InputField, Button } from './styles';
-import { sendEmail } from './sendEmail';
 
 export default function Contato() {
   const [state, setState] = useState({
@@ -24,8 +23,21 @@ export default function Contato() {
     const telephone = state.telefone;
     const message = state.mensagem;
 
-    await sendEmail(name, email, telephone, message);
-
+    fetch('http://localhost:3001/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name: name, 
+        email: email, 
+        telephone: telephone, 
+        message: message 
+      })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
   }
 
   const inputFields = [
