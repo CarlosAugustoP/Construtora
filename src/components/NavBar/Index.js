@@ -73,7 +73,7 @@ export default function Header(props){
                         <a style = {{textDecoration: 'none',
                                     color: 'black'
                         }}
-                        href="https://www.google.com">
+                        href="https://www.instagram.com/construtorapeixotoevasconcelos/" target="__blank">
                         <ContactInfo src={Instagram} alt="Instagram de contato">
                             @peixotoevasconcelos
                         </ContactInfo>

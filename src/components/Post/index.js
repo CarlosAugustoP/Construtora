@@ -14,6 +14,7 @@ export default function Post(props) {
         <p>Valor: {post.valor}</p>
         <p>Iniciado em: {post.iniciado_em}</p>
         <p>Entregue em: {post.entregue_em}</p>
+        <img src={post.imagem} alt="Imagem do imóvel" />
       </Container>
       <br />
     </>
@@ -29,5 +30,6 @@ Post.propTypes = {
     valor: PropTypes.string.isRequired,
     iniciado_em: PropTypes.string.isRequired,
     entregue_em: PropTypes.string.isRequired,
+    imagem: PropTypes.objectOf(PropTypes.string).isRequired,
   }).isRequired,
 };

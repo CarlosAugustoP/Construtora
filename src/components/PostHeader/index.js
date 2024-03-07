@@ -6,19 +6,76 @@ import TestImageHouse from '../../../public/img/TestImageHouse.png';
 import Post from '../Post';
 
 const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares. Seja parte dessa jornada, onde cada construção conta uma história única de ideias tornando-se em realidade. Interessado em seu sonho? Obtenha financiamento aqui.';
+
 export default function PostHeader(props){
 
   const [posts, setPosts] = useState([
     {
-        id: 1,
-        tipo: "Mansão",
-        Bairro: "Condomínio Fazenda Gramado",
-        localização: "Gravatá - PE",
-        valor: "Não está a venda",
+      id: 1,
+      tipo: "Mansão",
+      Bairro: "Condomínio Fazenda Gramado",
+      localização: "Gravatá - PE",
+      valor: "Não está a venda",
+      iniciado_em: "01/01/2021",
+      entregue_em: "01/01/2022",
+      imagem: TestImageHouse
+    },
+    {
+      id: 2,
+      tipo: "Apartamento",
+      Bairro: "Boa Viagem",
+      localização: "Recife - PE",
+      valor: "R$ 1.000.000,00",
+      iniciado_em: "01/01/2021",
+      entregue_em: "01/01/2022",
+      imagem: TestImageHouse
+    },
+    {
+      id: 3,
+      tipo: "Casa",
+      Bairro: "Condomínio Alphaville",
+      localização: "Recife - PE",
+      valor: "R$ 1.000.000,00",
+      iniciado_em: "01/01/2021",
+      entregue_em: "01/01/2022",
+      imagem: TestImageHouse
+  
+    },
+    {
+      id: 3,
+      tipo: "Casa",
+      Bairro: "Condomínio Alphaville",
+      localização: "Recife - PE",
+      valor: "R$ 1.000.000,00",
+      iniciado_em: "01/01/2021",
+      entregue_em: "01/01/2022",
+      imagem: TestImageHouse
+  
+    },
+    {
+      id: 3,
+      tipo: "Casa",
+      Bairro: "Condomínio Alphaville",
+      localização: "Recife - PE",
+      valor: "R$ 1.000.000,00",
+      iniciado_em: "01/01/2021",
+      entregue_em: "01/01/2022",
+      imagem: TestImageHouse
+    },
+      {
+        id: 3,
+        tipo: "Casa",
+        Bairro: "Condomínio Alphaville",
+        localização: "Recife - PE",
+        valor: "R$ 1.000.000,00",
         iniciado_em: "01/01/2021",
         entregue_em: "01/01/2022",
-        
+        imagem: TestImageHouse
+    
+
     },
+    
+
 ]);
 
   return (
@@ -57,22 +114,18 @@ export default function PostHeader(props){
             justifyContent: 'center',
             alignItems: 'center'
 
-        }}>         
+        }}>   
+        {/* mapping the posts to the Post component, saving the posts in the state and rendering the Post image       */}
           <PostGrid>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
-            <PostContainer><img src = {TestImageHouse}></img></PostContainer>
+            {posts.map((post, index) => (
+              <PostContainer key={index}>
+                <img src={post.imagem} alt="Post Image" />
+              </PostContainer>
+            ))}
           </PostGrid>
         </div>
-        {
-           posts.map((post, index) => (
-               <Post 
-               post={post}
-               /> 
-           ))}
+        
+        
       </>
       
   );

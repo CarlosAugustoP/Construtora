@@ -18,7 +18,6 @@ function App(){
             </div>
             <Header>
             </Header>
-            <h1>imoveis</h1>
            
         <PostHeader />
           <Contato/>
