@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "dev": "concurrently \"webpack serve\" \"node emailServer.js\""
+    "dev": "concurrently \"webpack serve\" \"node emailServer.js\"",
+    "devpc": "webpack serve"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
