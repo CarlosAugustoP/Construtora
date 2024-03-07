@@ -52,3 +52,13 @@ export const MainLogo = styled.img`
     width: 60px;
     height: 60px;
 `;
+
+export const Span = styled.span`
+    color: white;
+    font-weight: 200;
+    font-size: 20px;
+    &:hover {
+        color: #B0A494;
+        cursor: pointer;
+    }
+`;

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Container, Content, SubNav, ContactLogo, MainLogo} from './styles';
+import {Container, Content, SubNav, ContactLogo, MainLogo, Span} from './styles';
 import {ThemeContext} from '../../Context/ThemeContext'; 
 import Email from '../../../public/img/Email-icon.svg';
 import Instagram from '../../../public/img/Instagram-icon.svg';
@@ -47,10 +47,10 @@ export default function Header(props){
                     >
                         <MainLogo src={Logo} alt="Logo Peixoto e Vasconcelos"></MainLogo>
                         <Content>
-                            <span>Catálogo</span>
-                            <span>Contato</span>
-                            <span>Financiamento</span>
-                            <span>Quem somos?</span>
+                            <Span>Catálogo</Span>
+                            <Span>Contato</Span>
+                            <Span>Financiamento</Span>
+                            <Span>Quem somos?</Span>
                         </Content>
                     </Container>
                     <SubNav>

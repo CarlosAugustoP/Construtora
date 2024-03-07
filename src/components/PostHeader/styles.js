@@ -20,8 +20,8 @@ export const ImageContainer = styled(PostDescription)`
     img {
         background-color: #fff;
         color: #575757;
-        width: 85%;
         height: 100%;
+        margin-right: 20px;
         object-fit: cover;
         border: 5px solid #FFF;
         box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);

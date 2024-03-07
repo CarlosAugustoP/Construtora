@@ -7,16 +7,17 @@ import PostHeader from '../PostHeader';
 
 function App(){
    
-    // const [posts, setPosts] = useState([
-    //     {
-    //         id: Math.random(),
-    //         title: "Estrutura para post",
-    //         subtitle: "Início e termino da obra",
-    //         likes: 14,
-    //         read: false,
-    //         removed: true
-    //     },
-    // ]);
+    const [posts, setPosts] = useState([
+        {
+            id: 1,
+            tipo: "Mansão",
+            Bairro: "Condomínio Fazenda Gramado",
+            localização: "Gravatá - PE",
+            valor: "Não está a venda",
+            iniciado_em: "01/01/2021",
+            entregue_em: "01/01/2022",
+        },
+    ]);
 
     return (
         <ThemeProvider>

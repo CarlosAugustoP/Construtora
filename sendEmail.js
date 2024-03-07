@@ -1,6 +1,6 @@
 const { Resend } = require('resend');
 
-const resend = new Resend('api_resend');
+const resend = new Resend('re_f7DtZRkb_3cb4xDhUMXQP95T63wkGhiVH');
 
 exports.sendEmail = async (name, email, telephone, message) => {
   await resend.emails.send({
