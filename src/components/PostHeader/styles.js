@@ -52,3 +52,23 @@ export const PostContainer = styled(ImageContainer)`
         object-fit: cover;
     }
 `;
+
+export const LeftArrow = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 132%;
+  left: 50px;
+`;
+
+export const RightArrow = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 132%;
+  right: 50px;
+`;

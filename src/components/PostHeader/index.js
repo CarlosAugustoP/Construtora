@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../Context/ThemeContext';
-import { Container, ImageContainer, PostDescription, PostGrid, PostContainer } from './styles';
+import { Container, ImageContainer, PostDescription, PostGrid, PostContainer, LeftArrow, RightArrow } from './styles';
 import TestImageHouse from '../../../public/img/TestImageHouse.png';
 import Post from '../Post';
 
@@ -78,6 +78,12 @@ export default function PostHeader(props){
 
 ]);
 
+  const [nowPost, setNowPost] = useState(posts[0]); 
+
+  const handleMouseEnter = (index) => {
+    setNowPost(posts[index]);
+  }
+
   return (
       <>
         <div
@@ -95,13 +101,13 @@ export default function PostHeader(props){
                  fontWeight: '200',
                  marginTop: '60px', 
               }}>
-                <strong>Tipo de obra</strong> em <strong>Nome do Bairro</strong>
+                <strong>{nowPost.tipo}</strong> em <strong>{nowPost.Bairro}</strong>
                 <br></br>
-                Cidade - UF 
+                {nowPost.localização}
                 <br></br>
-                Obra Iniciada em xxyy
+                Obra Iniciada em {nowPost.iniciado_em}
                 <br></br>
-                Obra Entregue em xxyy
+                Obra Entregue em {nowPost.entregue_em}
                 </p>
               
             </PostDescription>
@@ -113,19 +119,35 @@ export default function PostHeader(props){
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
-
         }}>   
         {/* mapping the posts to the Post component, saving the posts in the state and rendering the Post image       */}
+          
+          <LeftArrow>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </LeftArrow>
+          
           <PostGrid>
             {posts.map((post, index) => (
-              <PostContainer key={index}>
+              <PostContainer 
+                key={index}
+                onMouseEnter={() => handleMouseEnter(index)}
+              >
                 <img src={post.imagem} alt="Post Image" />
               </PostContainer>
             ))}
           </PostGrid>
+
+          <RightArrow>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </RightArrow>
+
         </div>
-        
-        
       </>
       
   );
