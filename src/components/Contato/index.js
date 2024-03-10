@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from '../../Context/ThemeContext';
 import { Container, FormContainer, InputContainer, Title, InputField, Button } from './styles';
 
 export default function Contato() {
@@ -55,7 +54,7 @@ export default function Contato() {
           {inputFields.map(({ label, type, id, name, required }) => (
             <div key={id} style={{ display: 'flex', flexDirection: 'column', fontSize: '15px' }}>
               <label htmlFor={id}>{label}</label>
-              <InputField type={type} id={id} name={name} required={required} onChange={handleChange}></InputField>
+              <InputField type={type} id={id} name={name} required={required} onChange={handleChange}/>
             </div>
           ))}
         </InputContainer>

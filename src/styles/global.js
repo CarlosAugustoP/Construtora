@@ -6,6 +6,5 @@ export default createGlobalStyle`
         font-family: "Poppins", sans-serif;
         color: #fff;
     }
-    
 `;
 

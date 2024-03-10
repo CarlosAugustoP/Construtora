@@ -1,6 +1,5 @@
-import React, { useState, memo } from 'react';
+import React, { useState, useEffect , memo } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from '../../Context/ThemeContext';
 import { Container, ImageContainer, PostDescription, PostContainer, LeftArrow, RightArrow, ScrollingContent, BigImageContainer } from './styles';
 import TestImageHouse from '../../../public/img/TestImageHouse.png';
 import TestImageHouse2 from '../../../public/img/TestImageHouse2.png';
@@ -11,17 +10,42 @@ import { useTransition, animated } from 'react-spring';
 
 const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares. Seja parte dessa jornada, onde cada construção conta uma história única de ideias tornando-se em realidade. Interessado em seu sonho? Obtenha financiamento aqui.';
 
+const LoadingIndicator = () => (
+  <div style={{ textAlign: 'center' }}>
+    <span>Loading...</span>
+  </div>
+);
+
 const AnimatedImage = memo(({ src }) => {
-  const transitions = useTransition(src, {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Simula um atraso de 2 segundos no carregamento da imagem
+    return () => clearTimeout(timer);
+
+    /* usar o código abaixo ao invés do de cima para simular atraso no carregamento da imagem
+    
+    */
+  }, [src]);
+
+  const transitions = useTransition(!loading, {
     from: { opacity: 0, transform: 'translateX(100%)' },
     enter: { opacity: 1, transform: 'translateX(0%)' },
     leave: { opacity: 0, transform: 'translateX(-100%)' },
-    config: { duration: 500 },
+    config: { duration: 600 },
   });
 
-  return transitions((style, item) => (
-    <animated.img style={style} src={item} alt="Post" />
-  ));
+  return transitions((style, item) =>
+    item ? (
+      <animated.img style={{...style, width: '100%', height: '100%' }} src={src} alt="Post" />
+    ) : (
+      <animated.div style={{...style, textAlign: 'center'}}>
+        <LoadingIndicator />
+      </animated.div>
+    )
+  );
 });
 
 export default function PostHeader(props){

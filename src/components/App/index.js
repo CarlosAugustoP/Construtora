@@ -1,28 +1,17 @@
-import React, {useState, createContext} from 'react';
-import { ThemeProvider } from '../../Context/ThemeContext';
-import {Title} from './styles';
+import React from 'react';
 import Header from '../NavBar';
 import Contato from '../Contato';
-import Post from '../Post';
 import PostHeader from '../PostHeader';
-function App(){
 
-    return (
-        <ThemeProvider>
-            {/* SEBOSEIRA IMENSA. DEPOIS VAMOS MUDAR ISSO. */}
-            <div style = {{
-                height: '130px',
+export default function App(){
 
-            }}>
-                
-            </div>
-            <Header>
-            </Header>
-           
-        <PostHeader />
-          <Contato/>
-        </ThemeProvider>    
-    );
+  return (
+    <>
+      {/* SEBOSEIRA IMENSA. DEPOIS VAMOS MUDAR ISSO. */}
+      <div style = {{ height: '130px' }}/>
+      <Header/>
+      <PostHeader />
+      <Contato/>
+      </>
+  );
 }
-
-export default App;
