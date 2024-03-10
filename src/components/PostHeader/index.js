@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, memo } from 'react';
 import styled from 'styled-components';
 import { ThemeContext } from '../../Context/ThemeContext';
 import { Container, ImageContainer, PostDescription, PostContainer, LeftArrow, RightArrow, ScrollingContent, BigImageContainer } from './styles';
@@ -7,12 +7,24 @@ import TestImageHouse2 from '../../../public/img/TestImageHouse2.png';
 import Post from '../Post';
 import Arrow from '../../../public/img/Arrow.svg';
 import {posts, posts2, posts3} from './posts';
+import { useTransition, animated } from 'react-spring';
+
 const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares. Seja parte dessa jornada, onde cada construção conta uma história única de ideias tornando-se em realidade. Interessado em seu sonho? Obtenha financiamento aqui.';
 
-export default function PostHeader(props){
-  // current grid starts as 1, and can be defined to assume other values with setCurrentGrid
-  const [currentGrid, setCurrentGrid] = useState(1);
+const AnimatedImage = memo(({ src }) => {
+  const transitions = useTransition(src, {
+    from: { opacity: 0, transform: 'translateX(100%)' },
+    enter: { opacity: 1, transform: 'translateX(0%)' },
+    leave: { opacity: 0, transform: 'translateX(-100%)' },
+    config: { duration: 500 },
+  });
 
+  return transitions((style, item) => (
+    <animated.img style={style} src={item} alt="Post" />
+  ));
+});
+
+export default function PostHeader(props){
   // PostGrid is a component that receives an array of posts as props and renders them in a grid
   const PostGrid = ({ posts }) => {
     return (
@@ -22,19 +34,21 @@ export default function PostHeader(props){
         gridAutoRows: '230px',
         gap: '40px',
         width: '80%',
-        justifyContent: 'center'
-      
+        justifyContent: 'center',
       }}>
         {posts.map((post, index) => (
-          <PostContainer key={index}
-          onMouseEnter={() => handleMouseEnter(index)}>
-            <img src={post.imagem} alt="Post Image" />
+          <PostContainer key={index} onMouseEnter={() => handleMouseEnter(index)}>
+            <AnimatedImage src={post.imagem} />
           </PostContainer>
         ))}
       </div>
     );
   };
   
+
+  // current grid starts as 1, and can be defined to assume other values with setCurrentGrid
+  const [currentGrid, setCurrentGrid] = useState(1);
+
   // nowPost is a state that holds the post that is currently being hovered over, which is initialized as index 0
   const [nowPost, setNowPost] = useState(posts[0]); 
 
@@ -42,6 +56,17 @@ export default function PostHeader(props){
   const handleMouseEnter = (index) => {
     const selectedPosts = getPostsForGrid();
     setNowPost(selectedPosts[index]);
+  };
+
+  // If the user is in currentGrid 1, posts1 will be rendered and so on.
+  const getPostsForGrid = () => {
+    if (currentGrid === 1) {
+      return posts;
+    } else if (currentGrid === 2) {
+      return posts2;
+    } else {  
+      return posts3; 
+    }
   };
 
   // When the user clicks the left arrow, the current grid is set to the previous grid
@@ -54,25 +79,13 @@ export default function PostHeader(props){
     setCurrentGrid((prevGrid) => (prevGrid === 3 ? 1 : prevGrid + 1));
   };
 
-  // If the user is in currentGrid 1, posts1 will be rendered and so on.
-  const getPostsForGrid = () => {
-    if (currentGrid === 1) {
-      return posts;
-    } else if (currentGrid === 2) {
-      return posts2;
-    } else {  
-      return posts3; 
-    }
-  }
-
-
   return (
     <>
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <Container>
@@ -103,7 +116,6 @@ export default function PostHeader(props){
             <img src={nowPost.imagem} alt="Post Image" />
           </BigImageContainer>
         </Container>
-        
 
       </div>
       <div
@@ -112,12 +124,12 @@ export default function PostHeader(props){
           justifyContent: 'center',
           alignItems: 'center',
           marginTop: '100px',
-          gap: '20px'
+          gap: '20px',
         }}
       >
         <LeftArrow onClick={handlePreviousGrid} src={Arrow} />
         <ScrollingContent>
-          <PostGrid posts={getPostsForGrid()} />
+          <PostGrid posts={getPostsForGrid()}/>
         </ScrollingContent>
         <RightArrow onClick={handleNextGrid} src={Arrow} />
       </div>

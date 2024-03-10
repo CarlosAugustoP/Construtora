@@ -55,12 +55,8 @@ export const PostContainer = styled(ImageContainer)`
 `;
 
 export const LeftArrow = styled.img`
-    background-color: transparent;
-    border: none;
     cursor: pointer;
-    width: 50px;
     height: 50px;
-
 `;
 
 export const RightArrow = styled(LeftArrow)`
@@ -72,7 +68,6 @@ export const ScrollingContent = styled.div`
     align-items: center;
     justify-content: center; 
     transition: transform 0.5s ease;
-
 `;
 
 export const BigImageContainer = styled(ImageContainer)`  
