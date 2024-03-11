@@ -62,3 +62,10 @@ export const Span = styled.span`
         cursor: pointer;
     }
 `;
+export const Nav = styled.nav`
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+`;

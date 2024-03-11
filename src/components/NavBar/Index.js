@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Container, Content, SubNav, ContactLogo, MainLogo, Span} from './styles';
+import {Container, Content, SubNav, ContactLogo, MainLogo, Span, Nav} from './styles';
 import Email from '../../../public/img/Email-icon.svg';
 import Instagram from '../../../public/img/Instagram-icon.svg';
 import Phone from '../../../public/img/Phone-icon.svg';
@@ -30,14 +30,7 @@ export default function Header(props){
   return (
     <div>
       <header>
-        <nav 
-          style={{
-            position: 'fixed',
-            width: '100%',
-            top: 0,
-            left: 0,
-          }}
-        >
+        <Nav>
           <Container
             style={{
               justifyContent: 'space-between',
@@ -85,7 +78,7 @@ export default function Header(props){
               </ContactInfo>
             </a>
           </SubNav>
-        </nav>
+        </Nav>
       </header>
       {props.children}
     </div>

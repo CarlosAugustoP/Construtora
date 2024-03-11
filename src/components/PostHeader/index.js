@@ -59,6 +59,8 @@ export default function PostHeader(props){
         gap: '40px',
         width: '80%',
         justifyContent: 'center',
+        position: 'relative',
+        zIndex: 1,
       }}>
         {posts.map((post, index) => (
           <PostContainer key={index} onMouseEnter={() => handleMouseEnter(index)}>
