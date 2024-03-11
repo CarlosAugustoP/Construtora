@@ -1,5 +1,4 @@
-import styled, {css} from 'styled-components';
-import TestImageHouse from '../../../public/img/TestImageHouse.png';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     height: 310px;
@@ -12,8 +11,7 @@ export const Container = styled.div`
 export const PostDescription = styled.div`
     height: 100%;
     width: 50%;
-    padding-left: 80px;
-    
+    padding-left: 80px; 
 `;
 
 export const ImageContainer = styled(PostDescription)`    
@@ -38,35 +36,6 @@ export const ImageContainer = styled(PostDescription)`
     &:hover img {
         opacity: 0.2; 
     }
-`;
-
-export const PostContainer = styled(ImageContainer)`
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    img {
-        background-color: #fff;
-        color: #575757;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-`;
-
-export const LeftArrow = styled.img`
-    cursor: pointer;
-    height: 50px;
-`;
-
-export const RightArrow = styled(LeftArrow)`
-  transform: rotate(180deg);
-`;
-
-export const ScrollingContent = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    transition: transform 0.5s ease;
 `;
 
 export const BigImageContainer = styled(ImageContainer)`  

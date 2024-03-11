@@ -1,56 +1,28 @@
-import React, { useState, useEffect , memo } from 'react';
-import styled from 'styled-components';
-import { Container, ImageContainer, PostDescription, PostContainer, LeftArrow, RightArrow, ScrollingContent, BigImageContainer } from './styles';
-import TestImageHouse from '../../../public/img/TestImageHouse.png';
-import TestImageHouse2 from '../../../public/img/TestImageHouse2.png';
-import Post from '../Post';
+import React, { useState, memo } from 'react';
+import { PostContainer, LeftArrow, RightArrow, ScrollingContent } from './styles';
 import Arrow from '../../../public/img/Arrow.svg';
 import {posts, posts2, posts3} from './posts';
-import { useTransition, animated } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 
-const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares. Seja parte dessa jornada, onde cada construção conta uma história única de ideias tornando-se em realidade. Interessado em seu sonho? Obtenha financiamento aqui.';
-
-const LoadingIndicator = () => (
-  <div style={{ textAlign: 'center' }}>
-    <span>Loading...</span>
-  </div>
-);
-
-const AnimatedImage = memo(({ src }) => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Simula um atraso de 2 segundos no carregamento da imagem
-    return () => clearTimeout(timer);
-
-    /* usar o código abaixo ao invés do de cima para simular atraso no carregamento da imagem
-    
-    */
-  }, [src]);
-
-  const transitions = useTransition(!loading, {
+const AnimatedImage = ({ src }) => {
+  const animationProps = useSpring({
     from: { opacity: 0, transform: 'translateX(100%)' },
-    enter: { opacity: 1, transform: 'translateX(0%)' },
-    leave: { opacity: 0, transform: 'translateX(-100%)' },
+    to: { opacity: 1, transform: 'translateX(0%)' },
     config: { duration: 600 },
   });
 
-  return transitions((style, item) =>
-    item ? (
-      <animated.img style={{...style, width: '100%', height: '100%' }} src={src} alt="Post" />
-    ) : (
-      <animated.div style={{...style, textAlign: 'center'}}>
-        <LoadingIndicator />
-      </animated.div>
-    )
+  return (
+    <animated.img 
+      style={{ ...animationProps, width: '100%', height: '100%' }} 
+      src={src} 
+      alt="Post"
+    />
   );
-});
+};
 
 export default function PostHeader(props){
   // PostGrid is a component that receives an array of posts as props and renders them in a grid
-  const PostGrid = ({ posts }) => {
+  const PostGrid = ({ posts, onPostHover }) => {
     return (
       <div style = {{
         display: 'grid',
@@ -63,7 +35,7 @@ export default function PostHeader(props){
         zIndex: 1,
       }}>
         {posts.map((post, index) => (
-          <PostContainer key={index} onMouseEnter={() => handleMouseEnter(index)}>
+          <PostContainer key={index} onMouseEnter={() => onPostHover(post)}>
             <AnimatedImage src={post.imagem} />
           </PostContainer>
         ))}
@@ -71,18 +43,8 @@ export default function PostHeader(props){
     );
   };
   
-
   // current grid starts as 1, and can be defined to assume other values with setCurrentGrid
   const [currentGrid, setCurrentGrid] = useState(1);
-
-  // nowPost is a state that holds the post that is currently being hovered over, which is initialized as index 0
-  const [nowPost, setNowPost] = useState(posts[0]); 
-
-  // When the new grid page is chose, using the function "getpostsForGrid" we then allow the user to hover to a different post from another grid
-  const handleMouseEnter = (index) => {
-    const selectedPosts = getPostsForGrid();
-    setNowPost(selectedPosts[index]);
-  };
 
   // If the user is in currentGrid 1, posts1 will be rendered and so on.
   const getPostsForGrid = () => {
@@ -112,50 +74,13 @@ export default function PostHeader(props){
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
-        <Container>
-          <PostDescription>
-            <p style ={{
-              paddingLeft: "20%",
-              fontSize: "16px",
-            }}>{speech}</p>
-
-            <br />
-
-            <p style={{
-              direction: 'rtl',
-              fontWeight: '200',
-              fontSize: '15px',
-
-            }}>
-              <strong>{nowPost.tipo}</strong> em <strong>{nowPost.Bairro}</strong>
-              <br></br>
-              {nowPost.localização}
-              <br></br>
-              Obra Iniciada em {nowPost.iniciado_em}
-              <br></br>
-              Obra Entregue em {nowPost.entregue_em}
-            </p>
-          </PostDescription>
-          <BigImageContainer>
-            <img src={nowPost.imagem} alt="Post Image" />
-          </BigImageContainer>
-        </Container>
-
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           marginTop: '100px',
           gap: '20px',
         }}
       >
         <LeftArrow onClick={handlePreviousGrid} src={Arrow} />
         <ScrollingContent>
-          <PostGrid posts={getPostsForGrid()}/>
+          <PostGrid posts={getPostsForGrid()} onPostHover={props.onPostHover}/>
         </ScrollingContent>
         <RightArrow onClick={handleNextGrid} src={Arrow} />
       </div>
