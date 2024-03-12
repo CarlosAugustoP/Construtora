@@ -22,7 +22,7 @@ const AnimatedImage = ({ src }) => {
 
 export default function PostHeader(props){
   // PostGrid is a component that receives an array of posts as props and renders them in a grid
-  const PostGrid = ({ posts, onPostHover }) => {
+  const PostGrid = ({ posts }) => {
     return (
       <div style = {{
         display: 'grid',
