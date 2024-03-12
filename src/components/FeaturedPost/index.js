@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Container, PostDescription, BigImageContainer } from './styles';
 import Arrow from '../../../public/img/Arrow.svg';
-const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares. Seja parte dessa jornada, onde cada construção conta uma história única de ideias tornando-se em realidade. Interessado em seu sonho? Obtenha financiamento aqui.';
+const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares.';
 import {highlightedPosts} from  '../PostHeader/posts' ;
 import { animated, useSpring } from 'react-spring';
 
 //useEffect hook: Watches for changes in our component and triggers a function when a change is detected
 const AnimatedImage = ({ src }) => {
+  //useSpring hook: Animates the image when it is rendered. Start from, do this, and do it in this time
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0, transform: 'translateX(20%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { duration: 400 },
   }));
-
+  
+  //when changes are detected, the animationProps are updated
   useEffect(() => {
     setAnimationProps({
       from: { opacity: 0, transform: 'translateX(20%)' },
@@ -21,12 +23,41 @@ const AnimatedImage = ({ src }) => {
     });
   }, [src, setAnimationProps]);
 
+  //returns the image with the animationProps
   return (
     <animated.img 
-      style={{ ...animationProps, width: '100%', height: '100%' }} 
+      style={{ ...animationProps, width: '80%', height: '100%' }} 
       src={src} 
       alt="Post"
     />
+  );
+};
+
+const AnimatedText = ({ children }) => {  
+  const [animationProps, setAnimationProps] = useSpring(() => ({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 600 },
+  }));
+
+  useEffect(() => {
+    setAnimationProps({
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+      config: { duration: 600 },
+    });
+  }, [children, setAnimationProps]);
+  
+  return (
+    <animated.p style={{ ...animationProps, 
+      direction: 'rtl',
+      fontWeight: '200',
+      fontSize: '15px',
+      paddingLeft:'12%'
+
+     }}>
+      {children}
+    </animated.p>
   );
 };
 
@@ -35,13 +66,7 @@ export default function FeaturedPost() {
   const [currentPost, setCurrentPost] = useState(1);
 
   const getCurrentPost = () => {
-    if (currentPost === 1) {
-      return highlightedPosts[0];
-    } else if (currentPost === 2) {
-      return highlightedPosts[1];
-    } else {  
-      return highlightedPosts[2]; 
-    }
+    return highlightedPosts[currentPost - 1];
   };
 
   const handlePreviousPost = () => {
@@ -69,30 +94,25 @@ export default function FeaturedPost() {
             paddingLeft:'12%',
             fontSize: "16px",
           }}>{speech}</p>
-
-          <br />
-
-          <p style={{
-            direction: 'rtl',
-            fontWeight: '200',
-            fontSize: '15px',
-
-          }}>
+          <AnimatedText>
             <strong>{post.tipo}</strong> em <strong>{post.Bairro}</strong>
-            <br></br>
+            <br />
             {post.localização}
-            <br></br>
+            <br />
+            <strong>Valor: {post.valor}</strong>
+            <br />
             Obra Iniciada em {post.iniciado_em}
-            <br></br>
+            <br />
             Obra Entregue em {post.entregue_em}
-          </p>
+            <p>{post.descricao}</p>
+          </AnimatedText>
         </PostDescription>
         <BigImageContainer>
           
           <svg 
           onClick = {handlePreviousPost}
           style = {{
-            cursor: 'pointer',
+            flexDirection: 'row',
           }}
           viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 7L10 12L15 17" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
           <AnimatedImage style = {{width: '400px'}} src={post.imagem} alt="Post Image" />
