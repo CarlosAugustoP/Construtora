@@ -6,14 +6,13 @@ import FeaturedPost from '../FeaturedPost';
 import {posts} from '../PostHeader/posts';
 
 export default function App(){
-  const [featuredPost, setFeaturedPost] = useState(posts[0]);
 
   return (
     <>
-      <div style = {{ height: '130px' }}/>
+      <div style = {{ height: '150px' }}/>
       <Header/> 
-      <FeaturedPost post={featuredPost} />
-      <PostHeader onPostHover={setFeaturedPost} />
+      <FeaturedPost />
+      <PostHeader />
       <Contato/>
       </>
   );

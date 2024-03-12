@@ -41,6 +41,7 @@ export const BigImageContainer = styled(ImageContainer)`
 display: flex;
 align-items: center;
 gap:5px;
+
     &:hover img {
         opacity: 1.0;
         cursor: default; 

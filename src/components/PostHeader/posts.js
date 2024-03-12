@@ -196,3 +196,37 @@ export const posts2 = ([
       imagem: TestImageHouse3
     }
   ]);
+export const highlightedPosts = ([
+  {
+    id: 1,
+    tipo: "Mansão",
+    Bairro: "Condomínio Fazenda Gramado",
+    localização: "Gravatá - PE",
+    valor: "Não está a venda",
+    iniciado_em: "01/01/2021",
+    entregue_em: "01/01/2022",
+    imagem: TestImageHouse
+  },
+  {
+    id : 2,
+    tipo: "Casa",
+    Bairro: "indianópolis",
+    localização: "caruaru - PE",
+    valor: "R$ 1.000.000,00",
+    iniciado_em: "01/01/2021",
+    entregue_em: "01/01/2022",
+    imagem: TestImageHouse2
+
+  },
+  {
+    id : 3,
+    tipo: "Casa",
+    Bairro: "indianópolis",
+    localização: "caruaru - PE",
+    valor: "R$ 1.000.000,00",
+    iniciado_em: "01/01/2021",
+    entregue_em: "01/01/2022",
+    imagem: TestImageHouse3
+
+  },
+]);
