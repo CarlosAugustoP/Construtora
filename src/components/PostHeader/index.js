@@ -35,7 +35,7 @@ export default function PostHeader(props){
         zIndex: 1,
       }}>
         {posts.map((post, index) => (
-          <PostContainer key={index} onMouseEnter={() => onPostHover(post)}>
+          <PostContainer key={index}>
             <AnimatedImage src={post.imagem} />
           </PostContainer>
         ))}
@@ -80,7 +80,7 @@ export default function PostHeader(props){
       >
         <LeftArrow onClick={handlePreviousGrid} src={Arrow} />
         <ScrollingContent>
-          <PostGrid posts={getPostsForGrid()} onPostHover={props.onPostHover}/>
+          <PostGrid posts={getPostsForGrid()}/>
         </ScrollingContent>
         <RightArrow onClick={handleNextGrid} src={Arrow} />
       </div>
