@@ -37,14 +37,14 @@ const AnimatedText = ({ children }) => {
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 600 },
+    config: { duration: 1000 },
   }));
 
   useEffect(() => {
     setAnimationProps({
       from: { opacity: 0 },
       to: { opacity: 1 },
-      config: { duration: 600 },
+      config: { duration: 1000},
     });
   }, [children, setAnimationProps]);
   
@@ -64,6 +64,11 @@ const AnimatedText = ({ children }) => {
 
 export default function FeaturedPost() {
   const [currentPost, setCurrentPost] = useState(1);
+
+  useEffect(() => {
+    const timer = setInterval(handleNextPost, 10000);
+    return () => clearInterval(timer);
+  }, []);
 
   const getCurrentPost = () => {
     return highlightedPosts[currentPost - 1];
