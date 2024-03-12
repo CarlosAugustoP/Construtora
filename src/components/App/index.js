@@ -13,7 +13,7 @@ export default function App(){
       <div style = {{ height: '130px' }}/>
       <Header/> 
       <FeaturedPost post={featuredPost} />
-      <PostHeader/>
+      <PostHeader onPostHover={setFeaturedPost} />
       <Contato/>
       </>
   );
