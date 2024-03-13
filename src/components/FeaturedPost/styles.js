@@ -6,6 +6,7 @@ export const Container = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 `;
 
 export const PostDescription = styled.div`
@@ -13,7 +14,6 @@ export const PostDescription = styled.div`
     flex-direction: column;
     height: 100%;
     width: 50%;
-    gap:15px;
 `;
 
 export const ImageContainer = styled(PostDescription)`    

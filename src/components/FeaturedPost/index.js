@@ -92,12 +92,13 @@ export default function FeaturedPost() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        
       }}
     >
       <Container>
         <PostDescription>
           <p style={{
-            paddingLeft:'12%',
+            paddingLeft:'10%',
             fontSize: "16px",
             height: '33%'
           }}>{speech}</p>
