@@ -21,25 +21,25 @@ const AnimatedImage = ({ post }) => {
     config: { duration: 600 },
   });
 
-  const hoverAnimation = useSpring({
-    opacity: isHovered ? 0.3 : 1,
-  });
-
   return (
     <div 
-      style={{ position: 'relative', width: '100%', height: '100%' }}
+      style={{ 
+        position: 'relative', 
+        width: '100%', 
+        height: '100%',
+      }}
       onMouseEnter={() => setIsHovered(true)} 
       onMouseLeave={() => setIsHovered(false)}
+      
     >
       <animated.img 
-        style={{ ...animationProps, ...hoverAnimation, width: '100%', height: '100%' }} 
+        style={{ ...animationProps, width: '100%', height: '100%' }} 
         src={src} 
         alt="Post"
       />
       {isHovered && (
         <animated.div
           style={{
-            ...hoverAnimation,
             position: 'absolute',
             top: 0,
             left: 0,
@@ -49,18 +49,17 @@ const AnimatedImage = ({ post }) => {
             justifyContent: 'center',
             alignItems: 'center',
             color: 'white',
-            fontSize: '20px',
-            background: 'rgba(0, 0, 0, 0.5)',
-            padding: '10px',
-            boxSizing: 'border-box',
+            fontSize: '16px',
+            background: 'rgba(0, 0, 0, 0.6)',
+            border: isHovered ? '5px solid #fff' : 'none',
           }}
         >
-          <div>
-            <h1>{title}</h1>
-            <p>{location}</p>
-            <p>{value}</p>
-            <p>{started}</p>
-            <p>{finished}</p>
+          <div style={{ opacity: 1, padding: '20px'}}>
+          <h1 style={{ fontSize: '1.5em', marginBottom: '10px' }}>{title}</h1>
+            <p style={{ margin: '5px 0' }}>{location}</p>
+            <p style={{ margin: '5px 0' }}>{value}</p>
+            <p style={{ margin: '5px 0' }}>{started}</p>
+            <p style={{ margin: '5px 0' }}>{finished}</p>
           </div>
         </animated.div>
       )}

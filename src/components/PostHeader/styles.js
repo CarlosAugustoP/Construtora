@@ -11,8 +11,7 @@ export const Container = styled.div`
 
 export const PostDescription = styled.div`
     height: 100%;
-    width: 50%;
-    padding-left: 80px;
+    width: 100%;
     
 `;
 
@@ -21,28 +20,13 @@ export const ImageContainer = styled(PostDescription)`
         background-color: #fff;
         color: #575757;
         height: 100%;
-        margin-right: 20px;
-        object-fit: cover;
         border: 5px solid #FFF;
-        box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
-        transition: opacity 0.5s ease; 
-    }
-    
-    &:hover {
-        img {
-            opacity: 0.2;
-        }
-    }
-    
-    &:hover img {
-        opacity: 0.2; 
     }
 `;
 
 export const PostContainer = styled(ImageContainer)`
     width: 100%;
     height: 100%;
-    padding: 0;
     img {
         background-color: #fff;
         color: #575757;
