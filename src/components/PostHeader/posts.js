@@ -213,7 +213,7 @@ export const highlightedPosts = ([
 {
   id: 1,
   tipo: "Mansão",
-  Bairro: "Condomínio Fazenda Gramado",
+  Bairro: "Bairro Gramado",
   localização: "Gravatá - PE",
   valor: "Não está a venda",
   iniciado_em: "01/01/2021",
@@ -244,3 +244,4 @@ export const highlightedPosts = ([
   descricao: "Esse perfeito lar possui 2 quartos, 1 suíte master com hidromassagem, cozinha planejada, quintal com espaço gourmet"
 },
 ]);
+

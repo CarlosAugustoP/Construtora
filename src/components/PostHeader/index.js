@@ -4,19 +4,67 @@ import Arrow from '../../../public/img/Arrow.svg';
 import {posts, posts2, posts3} from './posts';
 import { animated, useSpring } from 'react-spring';
 
-const AnimatedImage = ({ src }) => {
+const AnimatedImage = ({ post }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const title = post.Bairro;
+  const location = post.localização;
+  const value = post.valor;
+  const started = post.iniciado_em;
+  const finished = post.entregue_em;
+
+  const src = post.imagem;
+
   const animationProps = useSpring({
     from: { opacity: 0, transform: 'translateX(100%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { duration: 600 },
   });
 
+  const hoverAnimation = useSpring({
+    opacity: isHovered ? 0.3 : 1,
+  });
+
   return (
-    <animated.img 
-      style={{ ...animationProps, width: '100%', height: '100%' }} 
-      src={src} 
-      alt="Post"
-    />
+    <div 
+      style={{ position: 'relative', width: '100%', height: '100%' }}
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <animated.img 
+        style={{ ...animationProps, ...hoverAnimation, width: '100%', height: '100%' }} 
+        src={src} 
+        alt="Post"
+      />
+      {isHovered && (
+        <animated.div
+          style={{
+            ...hoverAnimation,
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+            fontSize: '20px',
+            background: 'rgba(0, 0, 0, 0.5)',
+            padding: '10px',
+            boxSizing: 'border-box',
+          }}
+        >
+          <div>
+            <h1>{title}</h1>
+            <p>{location}</p>
+            <p>{value}</p>
+            <p>{started}</p>
+            <p>{finished}</p>
+          </div>
+        </animated.div>
+      )}
+    </div>
   );
 };
 
@@ -36,7 +84,7 @@ export default function PostHeader(props){
       }}>
         {posts.map((post, index) => (
           <PostContainer key={index}>
-            <AnimatedImage src={post.imagem} />
+            <AnimatedImage post={post} />
           </PostContainer>
         ))}
       </div>

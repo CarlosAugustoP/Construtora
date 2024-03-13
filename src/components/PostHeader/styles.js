@@ -30,7 +30,6 @@ export const ImageContainer = styled(PostDescription)`
     
     &:hover {
         img {
-            cursor: pointer;
             opacity: 0.2;
         }
     }
