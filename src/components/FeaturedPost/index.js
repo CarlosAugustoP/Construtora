@@ -53,7 +53,8 @@ const AnimatedText = ({ children }) => {
       direction: 'rtl',
       fontWeight: '200',
       fontSize: '15px',
-      paddingLeft:'12%'
+      paddingLeft:'12%',
+      height: '66%',
 
      }}>
       {children}
@@ -98,6 +99,7 @@ export default function FeaturedPost() {
           <p style={{
             paddingLeft:'12%',
             fontSize: "16px",
+            height: '33%'
           }}>{speech}</p>
           <AnimatedText>
             <strong>{post.tipo}</strong> em <strong>{post.Bairro}</strong>
