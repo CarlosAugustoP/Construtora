@@ -48,7 +48,7 @@ const AnimatedImage = ({ post }) => {
   const animationProps = useSpring({
     from: { opacity: 0, transform: 'translateX(100%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
-    config: { duration: 400 },
+    config: { duration: 1000 },
   });
 
   return (
