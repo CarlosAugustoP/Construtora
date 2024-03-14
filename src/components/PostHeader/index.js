@@ -3,6 +3,36 @@ import { PostContainer, LeftArrow, RightArrow, ScrollingContent } from './styles
 import Arrow from '../../../public/img/Arrow.svg';
 import {posts, posts2, posts3} from './posts';
 import { animated, useSpring } from 'react-spring';
+import { useEffect } from 'react';
+
+export const AnimatedText = ({ children }) => {  
+  const [animationProps, setAnimationProps] = useSpring(() => ({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 1000 },
+  }));
+
+  useEffect(() => {
+    setAnimationProps({
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+      config: { duration: 700},
+    });
+  }, [children, setAnimationProps]);
+  
+  return (
+    <animated.p style={{ ...animationProps, 
+      fontWeight: '300',
+      fontSize: '15px',
+      display:'flex',
+      alignItems: 'center',
+      flexDirection: 'column'
+
+     }}>
+      {children}
+    </animated.p>
+  );
+};
 
 const AnimatedImage = ({ post }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -51,14 +81,15 @@ const AnimatedImage = ({ post }) => {
             fontSize: '16px',
             background: 'rgba(0, 0, 0, 0.6)',
             border: isHovered ? '5px solid #fff' : 'none',
+            cursor: 'pointer',
           }}
         >
-          <div style={{ opacity: 1, padding: '20px', display:'flex', alignItems: 'center', flexDirection: 'column'}}>
-          <p style={{ marginBottom: '10px' }}>{title}</p>
-            <p style={{ margin: '5px 0' }}>{location}</p>
-            <p style={{ margin: '5px 0' }}>{value}</p>
-            <p style={{ margin: '5px 0' }}>{started}</p>
-            <p style={{ margin: '5px 0' }}>{finished}</p>
+          <div>
+          <AnimatedText>{title}</AnimatedText>
+            <AnimatedText>{location}</AnimatedText>
+            <AnimatedText>{value}</AnimatedText>
+            <AnimatedText>{started}</AnimatedText>
+            <AnimatedText>{finished}</AnimatedText>
           </div>
         </animated.div>
       )}
@@ -72,8 +103,8 @@ export default function PostHeader(props){
     return (
       <div style = {{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 230px)',
-        gridAutoRows: '230px',
+        gridTemplateColumns: 'repeat(3, 270px)',
+        gridAutoRows: '270px',
         gap: '40px',
         width: '80%',
         justifyContent: 'center',

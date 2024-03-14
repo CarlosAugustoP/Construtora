@@ -11,7 +11,7 @@ const AnimatedImage = ({ src }) => {
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0, transform: 'translateX(20%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
-    config: { duration: 400 },
+    config: { duration: 1000 },
   }));
   
   //when changes are detected, the animationProps are updated
@@ -19,7 +19,7 @@ const AnimatedImage = ({ src }) => {
     setAnimationProps({
       from: { opacity: 0, transform: 'translateX(20%)' },
       to: { opacity: 1, transform: 'translateX(0%)' },
-      config: { duration: 400 },
+      config: { duration: 1000 },
     });
   }, [src, setAnimationProps]);
 
@@ -33,7 +33,7 @@ const AnimatedImage = ({ src }) => {
   );
 };
 
-const AnimatedText = ({ children }) => {  
+ export const AnimatedText = ({ children }) => {  
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0 },
     to: { opacity: 1 },
@@ -67,7 +67,7 @@ export default function FeaturedPost() {
   const [currentPost, setCurrentPost] = useState(1);
 
   useEffect(() => {
-    const timer = setInterval(handleNextPost, 10000);
+    const timer = setInterval(handleNextPost, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -117,20 +117,8 @@ export default function FeaturedPost() {
         </PostDescription>
         <BigImageContainer>
           
-          <svg 
-          onClick = {handlePreviousPost}
-          style = {{
-            flexDirection: 'row',
-          }}
-          viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 7L10 12L15 17" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
           <AnimatedImage style = {{width: '400px'}} src={post.imagem} alt="Post Image" />
           
-          <svg style = {{
-            transform: 'rotate(180deg)',
-            cursor: 'pointer',
-          }}
-          onClick = {handleNextPost} 
-          viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 7L10 12L15 17" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
         
         </BigImageContainer>
       </Container>

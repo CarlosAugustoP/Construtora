@@ -6,7 +6,7 @@ export const Container = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
 `;
 
 export const PostDescription = styled.div`
