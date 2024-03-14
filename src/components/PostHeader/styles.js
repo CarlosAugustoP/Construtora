@@ -20,7 +20,9 @@ export const ImageContainer = styled(PostDescription)`
         background-color: #fff;
         color: #575757;
         height: 100%;
-        border: 5px solid #FFF;
+        border-radius: 25px;
+        box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+
     }
 `;
 

@@ -52,7 +52,7 @@ const AnimatedImage = ({ src }) => {
     <animated.p style={{ ...animationProps, 
       direction: 'rtl',
       fontWeight: '200',
-      fontSize: '15px',
+      fontSize: '18px',
       paddingLeft:'12%',
       height: '66%',
 
@@ -67,7 +67,7 @@ export default function FeaturedPost() {
   const [currentPost, setCurrentPost] = useState(1);
 
   useEffect(() => {
-    const timer = setInterval(handleNextPost, 6000);
+    const timer = setInterval(handleNextPost, 8000);
     return () => clearInterval(timer);
   }, []);
 
@@ -99,25 +99,17 @@ export default function FeaturedPost() {
         <PostDescription>
           <p style={{
             paddingLeft:'10%',
-            fontSize: "18px",
-            height: '33%'
+            height: '33%',
+            fontSize: '20px',
+            fontWeight: '200',
           }}>{speech}</p>
+          <br></br>
           <AnimatedText>
             <strong>{post.tipo}</strong> em <strong>{post.Bairro}</strong>
             <br />
             {post.localização}
             <br />
-            <strong>Valor: {post.valor}</strong>
-            <br />
-            Obra Iniciada em {post.iniciado_em}
-            <br />
-            Obra Entregue em {post.entregue_em}
-            <br />
-            <br />
-            <br />
-            
-            
-            <p>{post.descricao}</p>
+            <i>{post.descricao}</i>
           </AnimatedText>
         </PostDescription>
         <BigImageContainer>

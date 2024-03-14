@@ -80,8 +80,8 @@ const AnimatedImage = ({ post }) => {
             color: 'white',
             fontSize: '16px',
             background: 'rgba(0, 0, 0, 0.6)',
-            border: isHovered ? '5px solid #fff' : 'none',
             cursor: 'pointer',
+            borderRadius: '25px',
           }}
         >
           <div>
