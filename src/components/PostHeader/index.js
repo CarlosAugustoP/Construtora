@@ -18,7 +18,7 @@ const AnimatedImage = ({ post }) => {
   const animationProps = useSpring({
     from: { opacity: 0, transform: 'translateX(100%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
-    config: { duration: 600 },
+    config: { duration: 400 },
   });
 
   return (
@@ -30,7 +30,6 @@ const AnimatedImage = ({ post }) => {
       }}
       onMouseEnter={() => setIsHovered(true)} 
       onMouseLeave={() => setIsHovered(false)}
-      
     >
       <animated.img 
         style={{ ...animationProps, width: '100%', height: '100%' }} 
@@ -54,8 +53,8 @@ const AnimatedImage = ({ post }) => {
             border: isHovered ? '5px solid #fff' : 'none',
           }}
         >
-          <div style={{ opacity: 1, padding: '20px'}}>
-          <h1 style={{ fontSize: '1.5em', marginBottom: '10px' }}>{title}</h1>
+          <div style={{ opacity: 1, padding: '20px', display:'flex', alignItems: 'center', flexDirection: 'column'}}>
+          <p style={{ marginBottom: '10px' }}>{title}</p>
             <p style={{ margin: '5px 0' }}>{location}</p>
             <p style={{ margin: '5px 0' }}>{value}</p>
             <p style={{ margin: '5px 0' }}>{started}</p>
