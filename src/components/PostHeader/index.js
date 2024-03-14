@@ -9,7 +9,7 @@ export const AnimatedText = ({ children }) => {
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 1000 },
+    config: { duration: 700 },
   }));
 
   useEffect(() => {

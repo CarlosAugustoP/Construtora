@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    height: 330px;
-    width:70%;
+    height: 400px;
+    width:80%;
     display:flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
 `;
 
 export const PostDescription = styled.div`

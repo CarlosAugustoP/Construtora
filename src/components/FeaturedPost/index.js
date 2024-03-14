@@ -26,7 +26,7 @@ const AnimatedImage = ({ src }) => {
   //returns the image with the animationProps
   return (
     <animated.img 
-      style={{ ...animationProps, width: '80%', height: '100%' }} 
+      style={{ ...animationProps, width: '90%', height: '100%' }} 
       src={src} 
       alt="Post"
     />
@@ -99,7 +99,7 @@ export default function FeaturedPost() {
         <PostDescription>
           <p style={{
             paddingLeft:'10%',
-            fontSize: "16px",
+            fontSize: "18px",
             height: '33%'
           }}>{speech}</p>
           <AnimatedText>
@@ -112,6 +112,11 @@ export default function FeaturedPost() {
             Obra Iniciada em {post.iniciado_em}
             <br />
             Obra Entregue em {post.entregue_em}
+            <br />
+            <br />
+            <br />
+            
+            
             <p>{post.descricao}</p>
           </AnimatedText>
         </PostDescription>
