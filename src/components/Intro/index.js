@@ -8,7 +8,7 @@ export default function Intro() {
     return (
         <div style={{ paddingBottom: '100px', position: 'relative' }}>
             <img src={image} alt="Parralax" style={{ width: '100%' }} />
-            <div style={{ color: 'black', position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding: '20px', borderRadius: '10px' }}>
+            <div style={{ width: '70%', color: 'black', position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding: '20px', borderRadius: '10px' }}>
                 <h1 style = {{
                     fontSize: '50px'
 
