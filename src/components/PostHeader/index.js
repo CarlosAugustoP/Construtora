@@ -45,15 +45,15 @@ const AnimatedImage = ({ post, side }) => {
   const src = post.image;
 
   const animationPropsRight = useSpring({
-    from: { opacity: 0, transform: 'translateX(-100%)' },
+    from: { opacity: 0, transform: 'translateX(-40%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
-    config: { duration: 1000 },
+    config: { duration: 600 },
   });
 
   const animationPropsLeft = useSpring({
-    from: { opacity: 0, transform: 'translateX(100%)' },
+    from: { opacity: 0, transform: 'translateX(40%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
-    config: { duration: 1000 },
+    config: { duration: 600 },
   });
 
   let animationProps;
