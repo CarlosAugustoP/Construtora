@@ -4,13 +4,15 @@ import Contato from '../Contato';
 import PostHeader from '../PostHeader';
 import FeaturedPost from '../FeaturedPost';
 import {posts} from '../PostHeader/posts';
+import Intro from '../Intro';
 
 export default function App(){
 
   return (
     <>
-      <div style = {{ height: '150px' }}/>
       <Header/> 
+      <div style={{height: '100px'}}></div>
+      <Intro/>
       <FeaturedPost />
       <PostHeader />
       <Contato/>

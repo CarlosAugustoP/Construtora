@@ -64,6 +64,7 @@ const AnimatedImage = ({ src }) => {
 
 
 export default function FeaturedPost() {
+
   const [currentPost, setCurrentPost] = useState(1);
 
   useEffect(() => {
