@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PostContainer, LeftArrow, RightArrow, ScrollingContent } from './styles';
 import Arrow from '../../../public/img/Arrow.svg';
-import {posts, posts2, posts3} from './posts';
+import {highlightedPosts, posts, posts2, posts3} from './posts';
 import { a, animated, useSpring } from 'react-spring';
 import { useEffect } from 'react';
 
@@ -37,13 +37,12 @@ export const AnimatedText = ({ children }) => {
 const AnimatedImage = ({ post, side }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const title = post.Bairro;
-  const location = post.localização;
-  const value = post.valor;
-  const started = post.iniciado_em;
-  const finished = post.entregue_em;
+  const title = post.title;
+  const city = post.localização;
+  const rooms = post.rooms;
+  const highlightedPhrase = post.highlightedPhrase;
 
-  const src = post.imagem;
+  const src = post.image;
 
   const animationPropsRight = useSpring({
     from: { opacity: 0, transform: 'translateX(-100%)' },
@@ -100,9 +99,9 @@ const AnimatedImage = ({ post, side }) => {
         >
     <div style={{ maxWidth: '80%', textAlign: 'center' }}>
     <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{title}</AnimatedText>
-    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{location}</AnimatedText>
-    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{value}</AnimatedText>
-    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{started}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{city}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{rooms}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{highlightedPhrase}</AnimatedText>
   </div>
         </animated.div>
       )}

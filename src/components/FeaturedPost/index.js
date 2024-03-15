@@ -105,16 +105,16 @@ export default function FeaturedPost() {
           }}>{speech}</p>
           <br></br>
           <AnimatedText>
-            <strong>{post.tipo}</strong> em <strong>{post.Bairro}</strong>
+            <strong>{post.type}</strong> em <strong>{post.district}</strong>
             <br />
-            {post.localização}
+            {post.city}
             <br />
-            <i>{post.descricao}</i>
+            <i>{post.description}</i>
           </AnimatedText>
         </PostDescription>
         <BigImageContainer>
           
-          <AnimatedImage style = {{width: '400px'}} src={post.imagem} alt="Post Image" />
+          <AnimatedImage style = {{width: '400px'}} src={post.image} alt="Post Image" />
           
         
         </BigImageContainer>
