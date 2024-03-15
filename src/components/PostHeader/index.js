@@ -1,8 +1,8 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import { PostContainer, LeftArrow, RightArrow, ScrollingContent } from './styles';
 import Arrow from '../../../public/img/Arrow.svg';
 import {posts, posts2, posts3} from './posts';
-import { animated, useSpring } from 'react-spring';
+import { a, animated, useSpring } from 'react-spring';
 import { useEffect } from 'react';
 
 export const AnimatedText = ({ children }) => {  
@@ -34,7 +34,7 @@ export const AnimatedText = ({ children }) => {
   );
 };
 
-const AnimatedImage = ({ post }) => {
+const AnimatedImage = ({ post, side }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const title = post.Bairro;
@@ -45,11 +45,25 @@ const AnimatedImage = ({ post }) => {
 
   const src = post.imagem;
 
-  const animationProps = useSpring({
+  const animationPropsRight = useSpring({
+    from: { opacity: 0, transform: 'translateX(-100%)' },
+    to: { opacity: 1, transform: 'translateX(0%)' },
+    config: { duration: 1000 },
+  });
+
+  const animationPropsLeft = useSpring({
     from: { opacity: 0, transform: 'translateX(100%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { duration: 1000 },
   });
+
+  let animationProps;
+
+  if (side === 0) {
+    animationProps = animationPropsRight;
+  } else {
+    animationProps = animationPropsLeft;
+  }
 
   return (
     <div 
@@ -84,13 +98,12 @@ const AnimatedImage = ({ post }) => {
             borderRadius: '25px',
           }}
         >
-          <div>
-          <AnimatedText>{title}</AnimatedText>
-            <AnimatedText>{location}</AnimatedText>
-            <AnimatedText>{value}</AnimatedText>
-            <AnimatedText>{started}</AnimatedText>
-            <AnimatedText>{finished}</AnimatedText>
-          </div>
+    <div style={{ maxWidth: '80%', textAlign: 'center' }}>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{title}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{location}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{value}</AnimatedText>
+    <AnimatedText style={{ wordWrap: 'break-word', whiteSpace: 'pre-wrap' }}>{started}</AnimatedText>
+  </div>
         </animated.div>
       )}
     </div>
@@ -99,7 +112,7 @@ const AnimatedImage = ({ post }) => {
 
 export default function PostHeader(props){
   // PostGrid is a component that receives an array of posts as props and renders them in a grid
-  const PostGrid = ({ posts }) => {
+  const PostGrid = ({ posts, side }) => {
     return (
       <div style = {{
         display: 'grid',
@@ -113,7 +126,7 @@ export default function PostHeader(props){
       }}>
         {posts.map((post, index) => (
           <PostContainer key={index}>
-            <AnimatedImage post={post} />
+            <AnimatedImage post={post} side={side}/>
           </PostContainer>
         ))}
       </div>
@@ -122,6 +135,9 @@ export default function PostHeader(props){
   
   // current grid starts as 1, and can be defined to assume other values with setCurrentGrid
   const [currentGrid, setCurrentGrid] = useState(1);
+
+  // side is used to determine the direction of the animation (0 for left, 1 for right)
+  const [side, setSide] = useState(0);
 
   // If the user is in currentGrid 1, posts1 will be rendered and so on.
   const getPostsForGrid = () => {
@@ -137,11 +153,13 @@ export default function PostHeader(props){
   // When the user clicks the left arrow, the current grid is set to the previous grid
   const handlePreviousGrid = () => {
     setCurrentGrid((prevGrid) => (prevGrid === 1 ? 3 : prevGrid - 1));
+    setSide(0);
   };
 
   // When the user clicks the right arrow, the current grid is set to the next grid
   const handleNextGrid = () => {
     setCurrentGrid((prevGrid) => (prevGrid === 3 ? 1 : prevGrid + 1));
+    setSide(1);
   };
 
   return (
@@ -157,7 +175,7 @@ export default function PostHeader(props){
       >
         <LeftArrow onClick={handlePreviousGrid} src={Arrow} />
         <ScrollingContent>
-          <PostGrid posts={getPostsForGrid()}/>
+          <PostGrid posts={getPostsForGrid()} side={side}/>
         </ScrollingContent>
         <RightArrow onClick={handleNextGrid} src={Arrow} />
       </div>

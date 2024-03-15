@@ -8,8 +8,8 @@ export const posts = ([
     tipo: "Mansão",
     Bairro: "Condomínio Fazenda Gramado",
     localização: "Gravatá - PE",
-    valor: "Não está a venda",
-    iniciado_em: "01/01/2021",
+    valor: "1 quarto | 2 suítes",
+    iniciado_em: "Vista para montanhas com piscina aquecida",
     entregue_em: "01/01/2022",
     imagem: TestImageHouse,
     descricao: "4 quartos, 2 suítes, vista para as montanhas, piscina aquecida, amplo jardim e área gourmet"
