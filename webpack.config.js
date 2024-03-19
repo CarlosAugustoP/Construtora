@@ -40,7 +40,7 @@ module.exports = {
                 use: ['svg-url-loader'],
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpe?g)$/, // This line now includes JPEG and JPG files
                 use: [
                     {
                         loader: 'file-loader',

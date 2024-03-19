@@ -3,28 +3,39 @@ import React from 'react';
 export const Container = styled.div`
     width: 95%;
     display: flex;
-    background-color: orange;
     gap:20px;
-    height:400px;
     border-radius: 25px;
     border: 1px solid white;
     `;
  export const ImageContainer = styled.div`
     width: 40%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color: blue;
+    height: 400px;
+    padding-right: 20px;
+
+    img {
+        height:90%;
+        width:90%;
+        border-radius: 25px;
+    }
 `;
 
 export const TextContainer = styled.div`
     width: 60%;
-    background-color : black ;
-   
+    padding-left: 20px;
 
 `;
 
 export const TitleContainer = styled.div`
-    background-color: red;
     width:100%;
-    height:50px;
+    height:20%;
 `;
+
+export const Text = styled.p`
+    font-weight: 200;
+    font-size: 20px
+    
+    `;
