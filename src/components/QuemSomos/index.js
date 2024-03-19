@@ -23,7 +23,7 @@ const ContentSection = ({ imgSrc, titleText, bodyText, direction = "row", backgr
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center', 
-        marginTop: '40px'
+        marginTop: '100px'
       }}>
         <ContentSection imgSrc={photo1} titleText="Compromisso" bodyText={lorem} />
       </div>
@@ -31,7 +31,7 @@ const ContentSection = ({ imgSrc, titleText, bodyText, direction = "row", backgr
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center', 
-        marginTop: '40px'
+        marginTop: '50px'
       }}>
         <ContentSection imgSrc={photo1} direction = "row-reverse" titleText="Compromisso" bodyText={lorem} backgroundColor="rgb(238, 238, 238, 0.8)" color= "black"/>
       </div>

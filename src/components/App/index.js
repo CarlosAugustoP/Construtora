@@ -15,8 +15,8 @@ export default function App(){
       <Intro/>
       <FeaturedPost />
       <PostHeader />
-      <Contato/>
       <QuemSomos/>
+      <Contato/>
       </>
   );
 }
