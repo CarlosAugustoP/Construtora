@@ -4,7 +4,7 @@ export const Container = styled.div`
     width: 90%;
     display: flex;
     flex-direction: ${props => props.direction || 'row-reverse'};
-    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     gap:20px;
     
     @media (max-width: 768px) {
