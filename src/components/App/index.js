@@ -5,7 +5,7 @@ import PostHeader from '../PostHeader';
 import FeaturedPost from '../FeaturedPost';
 import {posts} from '../PostHeader/posts';
 import Intro from '../Intro';
-
+import QuemSomos  from '../QuemSomos';
 export default function App(){
 
   return (
@@ -16,6 +16,7 @@ export default function App(){
       <FeaturedPost />
       <PostHeader />
       <Contato/>
+      <QuemSomos/>
       </>
   );
 }
