@@ -89,6 +89,7 @@ export default function FeaturedPost() {
 
   return (
     <div
+      id = "Empreendimentos"
       style={{
         display: 'flex',
         justifyContent: 'center',

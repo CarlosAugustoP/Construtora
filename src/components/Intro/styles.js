@@ -10,22 +10,24 @@ export const Container = styled.div`
     text-shadow: 2px 2px 4px #000000;
 `;
 export const Button = styled.button`
-    background-color: black;
+    background: linear-gradient(to right, #1C1C1C, #3A3A3A); /* Use contrasting colors for a more drastic gradient */
     color: white;
+    font-size: 20px;
     padding: 10px;
     border-radius: 10px;
-    margin-top: 20px ;
     border: none;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-        background-color: #fff;
-        color: #575757;
+        background: linear-gradient(to right, white,grey); 
+        color: black;
     }
     `;
 
 export const Colored = styled.span`
-    color: #B0A494;
+    background: linear-gradient(to right, #1C1C1C, #3A3A3A); /* Use contrasting colors for a more drastic gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent */
 `;
 

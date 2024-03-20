@@ -8,17 +8,14 @@ export default function Intro() {
     return (
         <div style={{ paddingBottom: '100px', position: 'relative' }}>
             <img src={image} alt="Parralax" style={{ width: '100%' }} />
-            <div style={{ width: '70%', color: 'black', position: 'absolute', top: '40%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', backgroundColor: 'rgba(255, 255, 255, 0.7)', padding: '20px', borderRadius: '10px' }}>
+            <div style={{ width: '50%', color: 'black', position: 'absolute', top: '40%', left: '27%', transform: 'translate(-50%, -50%)', padding: '20px', borderRadius: '10px', backgroundColor: 'rgb(255,255,255,0.2)' }}>
                 <h1 style = {{
-                    fontSize: '50px'
+                    fontSize: '50px',
+                    width: '70%',
 
-                }}>O seu <Colored>sonho</Colored> é o nosso <Colored>Compromisso</Colored>.</h1>
-                <p>Com X anos de história, nos orgulhamos em manter um legado de excelência e comprometimento na construção de sonhos e lares.</p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '20px' }}>
-                   <Button>Conheça nossos Empreendimentos</Button>
-                   <Button>Fale Conosco</Button>
-                   <Button>Obtenha financiamento</Button>
-                   <Button>Quem somos?</Button>
+                }}><Colored>O seu sonho é o nosso compromisso.</Colored></h1>
+                <div >
+                   <Button>Entre em contato</Button>
                 </div>
             </div>
         </div>

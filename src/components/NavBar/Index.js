@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Container, Content, SubNav, ContactLogo, MainLogo, Span, Nav} from './styles';
+import { Container, Content, SubNav, ContactLogo, MainLogo, Span, Nav, A } from './styles';
 import Email from '../../../public/img/Email-icon.svg';
 import Instagram from '../../../public/img/Instagram-icon.svg';
 import Phone from '../../../public/img/Phone-icon.svg';
@@ -12,7 +13,6 @@ const Title = styled.h1`
   color: white;
 `;
 
-//creating a new component that will receive the src, alt and children props to improve modularization
 const ContactInfo = ({ src, alt, children }) => (
   <span
     style={{
@@ -26,7 +26,7 @@ const ContactInfo = ({ src, alt, children }) => (
   </span>
 );
 
-export default function Header(props){
+export default function Header({ scrollToSection }) {
   return (
     <div>
       <header>
@@ -38,10 +38,9 @@ export default function Header(props){
           >
             <MainLogo src={Logo} alt="Logo Peixoto e Vasconcelos"></MainLogo>
             <Content>
-              <Span>Catálogo</Span>
-              <Span>Contato</Span>
-              <Span>Financiamento</Span>
-              <Span>Quem somos?</Span>
+            <Span><A href="#Empreendimentos">Empreendimentos</A></Span>
+            <Span><A href="#QuemSomos">Quem Somos</A></Span>
+            <Span><A href ="#Contato">Contato</A></Span>
             </Content>
           </Container>
           <SubNav>
@@ -52,9 +51,9 @@ export default function Header(props){
               }}
               href="https://www.google.com"
             >
-          <ContactInfo src={Phone} alt="Telefone de contato">
-            +5581992036473
-          </ContactInfo>
+              <ContactInfo src={Phone} alt="Telefone de contato">
+                +5581992036473
+              </ContactInfo>
             </a>
             <a 
               style = {{
@@ -80,16 +79,10 @@ export default function Header(props){
           </SubNav>
         </Nav>
       </header>
-      {props.children}
     </div>
   );
 }
 
-Header.proptypes = {
-  title: PropTypes.string,
-  children: PropTypes.node,
-};
-
-Header.defaultProps = { 
-  title: 'Construtora Peixoto e Vasconcelos'
+Header.propTypes = {
+  scrollToSection: PropTypes.func.isRequired,
 };

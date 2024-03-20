@@ -69,3 +69,8 @@ export const Nav = styled.nav`
             left: 0;
             z-index: 100;
 `;
+export const A = styled.a`
+    text-decoration: none;
+    &:visited {
+        color: white;
+    }`

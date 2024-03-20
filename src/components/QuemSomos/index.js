@@ -19,7 +19,9 @@ const ContentSection = ({ imgSrc, titleText, bodyText, direction = "row", backgr
     export default function QuemSomos() {
     return (
         <>
-      <div style={{
+      <div 
+      id = "QuemSomos"
+      style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center', 

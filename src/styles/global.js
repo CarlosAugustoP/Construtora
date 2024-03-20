@@ -6,5 +6,8 @@ export default createGlobalStyle`
         font-family: "Poppins", sans-serif;
         color: #fff;
     }
+    html {
+        scroll-behavior: smooth;
+    }
 `;
 
