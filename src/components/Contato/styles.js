@@ -7,14 +7,13 @@ export const Title = styled.h1`
 `
 export const Container = styled.div`
   margin-top: 50px;
-  background-color: #575757;
+  background-color: grey;;
   width: 100%;
   height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   @media (max-width: 768px) {
     height: 400px;
   }
