@@ -1,5 +1,4 @@
-import styled, {css} from 'styled-components';
-import { Content } from '../NavBar/styles';
+import styled from 'styled-components';
 
 export const Title = styled.h1`
   font-weight: 200;
@@ -15,6 +14,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
 `;
 
 export const FormContainer = styled.form`
@@ -25,15 +28,22 @@ export const FormContainer = styled.form`
 
 export const InputContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 2fr 2fr ;
   align-items: center;
   justify-items: end;
-  gap:40px;
+  gap: 40px;
   position: relative;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap:10px;
+  }
+ 
 `;
 
 export const InputField = styled.input`
-  width: 100%;
+  width: 250px;
   height: 20px;
   border: none;
   border-radius: 5px;

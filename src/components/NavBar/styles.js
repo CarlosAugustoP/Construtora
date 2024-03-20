@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     height: 75px;
@@ -57,20 +57,23 @@ export const Span = styled.span`
     color: white;
     font-weight: 200;
     font-size: 20px;
+    
+`;
+export const Nav = styled.nav`
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+`;
+export const A = styled.a`
+    text-decoration: none;
+    color: white;
+    &:visited {
+        color: white;
+    }
     &:hover {
         color: #B0A494;
         cursor: pointer;
     }
-`;
-export const Nav = styled.nav`
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-`;
-export const A = styled.a`
-    text-decoration: none;
-    &:visited {
-        color: white;
-    }`
+    `

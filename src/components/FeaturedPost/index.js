@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Container, PostDescription, BigImageContainer } from './styles';
-import Arrow from '../../../public/img/Arrow.svg';
 const speech = ' Na construtora Peixoto e Vasconcelos, acreditamos que cada obra é mais do que concreto e aço. É a realização de um sonho, onde transformamos ideias em lares.';
 import {highlightedPosts} from  '../PostHeader/posts' ;
 import { animated, useSpring } from 'react-spring';
 
-//useEffect hook: Watches for changes in our component and triggers a function when a change is detected
 const AnimatedImage = ({ src }) => {
-  //useSpring hook: Animates the image when it is rendered. Start from, do this, and do it in this time
   const [animationProps, setAnimationProps] = useSpring(() => ({
     from: { opacity: 0, transform: 'translateX(20%)' },
     to: { opacity: 1, transform: 'translateX(0%)' },
     config: { duration: 1000 },
   }));
   
-  //when changes are detected, the animationProps are updated
   useEffect(() => {
     setAnimationProps({
       from: { opacity: 0, transform: 'translateX(20%)' },
@@ -23,7 +19,6 @@ const AnimatedImage = ({ src }) => {
     });
   }, [src, setAnimationProps]);
 
-  //returns the image with the animationProps
   return (
     <animated.img 
       style={{ ...animationProps, width: '90%', height: '100%' }} 
@@ -75,11 +70,6 @@ export default function FeaturedPost() {
   const getCurrentPost = () => {
     return highlightedPosts[currentPost - 1];
   };
-
-  const handlePreviousPost = () => {
-    setCurrentPost((prevPost) => (prevPost=== 1 ? 3 : prevPost- 1));
-  };
-
   // When the user clicks the right arrow, the current grid is set to the next grid
   const handleNextPost = () => {
     setCurrentPost((prevPost) => (prevPost=== 3 ? 1 : prevPost+ 1));
@@ -115,10 +105,7 @@ export default function FeaturedPost() {
           </AnimatedText>
         </PostDescription>
         <BigImageContainer>
-          
           <AnimatedImage style = {{width: '400px'}} src={post.image} alt="Post Image" />
-          
-        
         </BigImageContainer>
       </Container>
     </div>

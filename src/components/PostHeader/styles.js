@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components';
-import TestImageHouse from '../../../public/img/TestImageHouse.png';
 
 export const Container = styled.div`
     height: 310px;

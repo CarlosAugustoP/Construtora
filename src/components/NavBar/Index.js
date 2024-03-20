@@ -1,17 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Container, Content, SubNav, ContactLogo, MainLogo, Span, Nav, A } from './styles';
 import Email from '../../../public/img/Email-icon.svg';
 import Instagram from '../../../public/img/Instagram-icon.svg';
 import Phone from '../../../public/img/Phone-icon.svg';
 import Logo from '../../../public/img/Main-Logo.png';
-
-const Title = styled.h1`
-  margin-left: 20px;
-  color: white;
-`;
 
 const ContactInfo = ({ src, alt, children }) => (
   <span

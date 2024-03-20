@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import { Container, FormContainer, InputContainer, Title, InputField, Button } from './styles';
-
 export default function Contato() {
   const [state, setState] = useState({
     nome: '',

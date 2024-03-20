@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { PostContainer, LeftArrow, RightArrow, ScrollingContent } from './styles';
 import Arrow from '../../../public/img/Arrow.svg';
-import {highlightedPosts, posts, posts2, posts3} from './posts';
-import { a, animated, useSpring } from 'react-spring';
+import { posts, posts2, posts3} from './posts';
+import { animated, useSpring } from 'react-spring';
 import { useEffect } from 'react';
 
 export const AnimatedText = ({ children }) => {  
