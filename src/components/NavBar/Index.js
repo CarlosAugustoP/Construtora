@@ -42,7 +42,7 @@ export default function Header({ scrollToSection }) {
                 textDecoration: 'none',
                 color: 'black'
               }}
-              href="https://www.google.com"
+              href="https://wa.me/5581992036473?text=Olá,%20estou%20interessado%20nos%20empreendimentos%20da%20Peixoto%20e%20Vasconcelos!"
             >
               <ContactInfo src={Phone} alt="Telefone de contato">
                 +5581992036473
@@ -53,7 +53,7 @@ export default function Header({ scrollToSection }) {
                 textDecoration: 'none',
                 color: 'black'
               }}
-              href="https://www.google.com"
+              href="#Contato"
             >
               <ContactInfo src={Email} alt="Email de contato">
                 contato@peixotoevasconcelos.com
