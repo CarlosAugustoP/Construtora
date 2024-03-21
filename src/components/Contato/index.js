@@ -46,7 +46,7 @@ export default function Contato() {
 
   return (
     <Container id = "Contato">
-      <Title>Fale Conosco!</Title>
+      <h1>Fale Conosco!</h1>
       <FormContainer onSubmit={handleSubmit}>
         <InputContainer>
           {inputFields.map(({ label, type, id, name, required }) => (

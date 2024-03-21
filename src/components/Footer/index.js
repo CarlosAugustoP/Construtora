@@ -20,7 +20,7 @@ export default function Footer() {
                 <p>©2024 PEIXOTO & VASCONCELOS. TODOS OS DIREITOS RESERVADOS.</p>
             </div>
             <Container>
-                Desevolvido por:
+                Website desenvolvido por:
                <Credit name="Carlos Augusto" link="https://www.linkedin.com/in/carlos-augusto-vasconcelos-6472a3240/"/>    
                <Credit name="Gabriel Pires" link="https://www.linkedin.com/in/gabriel-pires-777106222/"/>
             </Container>
