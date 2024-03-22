@@ -5,6 +5,7 @@ import PostHeader from '../PostHeader';
 import FeaturedPost from '../FeaturedPost';
 import Intro from '../Intro';
 import QuemSomos  from '../QuemSomos';
+
 import Footer from '../Footer';
 export default function App(){
 
