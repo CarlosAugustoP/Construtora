@@ -75,7 +75,3 @@ export default function Header({ scrollToSection }) {
     </div>
   );
 }
-
-Header.propTypes = {
-  scrollToSection: PropTypes.func.isRequired,
-};
